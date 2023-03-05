@@ -1,7 +1,7 @@
-MathEnhancerKit
+MathEnhancer
 ===============
 
-MathEnhancerKit is a Swift package that provides extensions to the Swift math library. It includes a range of useful math functions and utility methods that expand upon the functionality of the Swift core library.
+MathEnhancer is a Swift package that provides extensions to the Swift math library. It includes a range of useful math functions and utility methods that expand upon the functionality of the Swift core library.
 
 Features
 --------
@@ -16,7 +16,7 @@ Features
 Installation
 ------------
 
-MathEnhancerKit can be installed in your project using Swift Package Manager. To install it, simply add the following line to your `Package.swift` file:
+MathEnhancer can be installed in your project using Swift Package Manager. To install it, simply add the following line to your `Package.swift` file:
 
 swift
 
@@ -168,4 +168,4 @@ let size = CGPoint(x: 100, y: 200).sizeValue
 Author
 ------
 
-MathEnhancerKit was developed by Ilias Nikolaidis Olsson.
+MathEnhancer was developed by Ilias Nikolaidis Olsson.
