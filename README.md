@@ -22,11 +22,9 @@ swift
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/<username>/<repo>.git", from: "1.0.0")
+    .package(url: "https://github.com/Iliasnolsson/MathEnhancer", from: "1.0.0")
 ]
 ```
-
-Replace `<username>` and `<repo>` with your GitHub username and the name of your MathEnhancerKit repository.
 
 Requirements
 ------------
@@ -164,97 +162,6 @@ let point4 = point1.multiply(xBy: 2).divide(yBy: 3)
 // Convert a point to a size
 let size = CGPoint(x: 100, y: 200).sizeValue
 ```
-
----
-
-`CGRect` Extension
--------------------
-
-The `CGRect` extension provides a set of useful methods to interact with the points of a rectangle. Here is how to use it:
-
-swift
-
-```swift
-let rect = CGRect(x: 0, y: 0, width: 100, height: 100)
-
-// Get points of the rectangle
-let points = rect.points(withTransform: nil)
-
-// Get a specific point of the rectangle
-let topLeft = rect.point(for: .topLeft)
-
-// Get the opposite part of a specific part
-let opposite = Part.topLeft.opposite()
-
-// Get the percentage of a point relative to a specific anchor point
-let pointPercentage = rect.percentage(ofPoint: CGPoint(x: 50, y: 50), relativeToPoint: rect.center)
-```
-
-Parts
------
-
-The `Part` enum represents the different parts of a rectangle:
-
-*   `.topLeft`
-*   `.middleTop`
-*   `.middleBottom`
-*   `.topRight`
-*   `.bottomLeft`
-*   `.middleLeft`
-*   `.bottomRight`
-*   `.middleRight`
-*   `.middle`
-
-
-
-`CGFloat` Extension
--------------------
-
-The `CGFloat` extension provides a set of useful methods to work with `CGFloat` values. Here is how to use it:
-
-swift
-
-```swift
-let a: CGFloat = 2
-let b: CGFloat = 5
-
-// Get the min and max value of two CGFloats
-let minMax = a.minMax(relativeTo: b)
-
-// Round a CGFloat to the nearest value
-let roundedNearest = a.round(nearest: 0.5)
-
-// Round a CGFloat to a specified number of decimal places
-let roundedDecimal = a.rounded(decimal: 0.1)
-```
-
-Easy initialization
--------------------
-
-The `CGSize` and `CGPoint` extensions provide easy ways to initialize instances of these types. Here is how to use it:
-
-swift
-
-```swift
-// Initialize a CGSize with a CGPoint
-let point = CGPoint(x: 50, y: 100)
-let sizeFromPoint = CGSize(point)
-
-// Initialize a CGSize with a single value for width and height
-let sizeFromWH = CGSize(wh: 50)
-
-// Get a CGPoint value from a CGSize
-let pointValue = sizeFromPoint.pointValue
-
-// Initialize a CGPoint with a CGSize
-let size = CGSize(width: 50, height: 100)
-let pointFromSize = CGPoint(size)
-
-// Initialize a CGPoint with a single value for x and y
-let pointFromXY = CGPoint(xy: 50)
-```
-
-
 
 ---
 
