@@ -37,6 +37,21 @@ public extension CGFloat {
    
    1. The amount can be greater than one and less than zero. The interpolation will not be clipped.
    */
+  func interpolateTo(_ to: CGFloat, amount: CGFloat) -> CGFloat {
+    return self + ((to - self) * CGFloat(amount))
+  }
+  
+  func interpolateTo(_ to: CGFloat, amount: CGFloat, spatialOutTangent: CGPoint?, spatialInTangent: CGPoint?) -> CGFloat {
+    return interpolateTo(to, amount: amount)
+  }
+  
+  func remap(fromLow: CGFloat, fromHigh: CGFloat, toLow: CGFloat, toHigh: CGFloat) -> CGFloat {
+    guard (fromHigh - fromLow) != 0 else {
+      // Would produce NAN
+      return 0
+    }
+    return toLow + (self - fromLow) * (toHigh - toLow) / (fromHigh - fromLow)
+  }
   
   /**
    Returns a value that is clamped between the two numbers
@@ -408,4 +423,5 @@ public extension CGPoint {
   }
     
 }
+
 
