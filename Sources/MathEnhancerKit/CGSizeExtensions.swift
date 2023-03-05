@@ -9,14 +9,6 @@ import CoreGraphics
 
 public extension CGSize {
     
-    init(_ point: CGPoint) {
-        self.init(width: point.x, height: point.y)
-    }
-    
-    init(wh: CGFloat) {
-        self.init(width: wh, height: wh)
-    }
-    
     var pointValue: CGPoint {
         return .init(x: width, y: height)
     }

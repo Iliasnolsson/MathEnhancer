@@ -65,14 +65,6 @@ public extension CGPoint {
         return .init(x: xScale, y: yScale)
     }
     
-    init(_ size: CGSize) {
-        self.init(x: size.width, y: size.height)
-    }
-    
-    init(xy: CGFloat) {
-        self.init(x: xy, y: xy)
-    }
-    
     func add(x: CGFloat) -> CGPoint {
         return .init(x: self.x + x, y: self.y)
     }
