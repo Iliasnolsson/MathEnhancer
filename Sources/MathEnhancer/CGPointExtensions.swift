@@ -109,5 +109,55 @@ public extension CGPoint {
         return Swift.min(x, y)
     }
     
+    /// Returns the distance between the receiver and the given point.
+    func distanceTo(_ a: CGPoint) -> CGFloat {
+        let xDist = a.x - x
+        let yDist = a.y - y
+        return CGFloat(sqrt((xDist * xDist) + (yDist * yDist)))
+    }
+    
+    func distanceXYTo(_ a: CGPoint) -> CGPoint {
+        let xDist = abs(a.x - x)
+        let yDist = abs(a.y - y)
+        return .init(x: xDist, y: yDist)
+    }
+    
+    func translation(to point: CGPoint) -> CGPoint {
+        return point - self
+    }
+    
+    /// Returns the length between the receiver and *CGPoint.zero*
+    var vectorLength: CGFloat {
+        return distanceTo(.zero)
+    }
+    
+    func rounded(decimal: CGFloat) -> CGPoint {
+        return CGPoint(x: (round(decimal * x) / decimal), y: (round(decimal * y) / decimal))
+    }
+    
+    /**
+     Interpolates the receiver to the given Point by Amount.
+     - Parameter to: The Point to interpolate to.
+     - Parameter amount: The amount to interpolate from 0-1
+     
+     ```
+     let point = CGPoint(width: 50, height: 50)
+     let interpolated = rect.interpolateTo(CGPoint(width: 100, height: 100), amount: 0.5)
+     print(interpolated)
+     // Result: (x: 75, y: 75)
+     ```
+     
+     1. The amount can be greater than one and less than zero. The interpolation will not be clipped.
+     */
+    
+    func colinear(_ a: CGPoint, _ b: CGPoint) -> Bool {
+        let area = x * (a.y - b.y) + a.x * (b.y - y) + b.x * (y - a.y);
+        let accuracy: CGFloat = 0.05
+        if area < accuracy && area > -accuracy {
+            return true
+        }
+        return false
+    }
+    
 }
 
