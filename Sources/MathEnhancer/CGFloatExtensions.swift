@@ -22,7 +22,8 @@ public extension CGFloat {
         return numberToRound.rounded() / n
     }
     
-    func rounded(decimal: CGFloat) -> CGFloat {
+    func rounded(decimal: Int) -> CGFloat {
+        let decimal = decimal.cgFloat
         return (decimal * self).rounded(.toNearestOrEven) / decimal
     }
     

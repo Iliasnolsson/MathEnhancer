@@ -131,8 +131,9 @@ public extension CGPoint {
         return distanceTo(.zero)
     }
     
-    func rounded(decimal: CGFloat) -> CGPoint {
-        return CGPoint(x: (round(decimal * x) / decimal), y: (round(decimal * y) / decimal))
+    func rounded(decimal: Int) -> CGPoint {
+        return CGPoint(x: x.rounded(decimal: decimal),
+                       y: y.rounded(decimal: decimal))
     }
     
     /**

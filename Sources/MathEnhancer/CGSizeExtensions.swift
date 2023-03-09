@@ -27,8 +27,9 @@ public extension CGSize {
         return Swift.min(width, height)
     }
     
-    func rounded(decimal: CGFloat) -> CGSize {
-        return .init(width: width.rounded(decimal: decimal), height: height.rounded(decimal: decimal))
+    func rounded(decimal: Int) -> CGSize {
+        return .init(width: width.rounded(decimal: decimal),
+                     height: height.rounded(decimal: decimal))
     }
     
 }
