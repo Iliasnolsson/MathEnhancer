@@ -21,7 +21,7 @@ swift
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/username/MathEnhancer", from: "1.0.0")
+    .package(url: "https://github.com/Iliasnolsson/MathEnhancer", from: "1.0.0"..<"2.0.0")
 ]
 ```
 
