@@ -22,8 +22,15 @@ public extension CGFloat {
         return numberToRound.rounded() / n
     }
     
+    
+    /**
+     Rounds the `CGFloat` to the specified number of decimal places.
+     
+     - Parameter decimal: The number of decimal places to round to.
+     - Returns: A new `CGFloat` rounded.
+     */
     func rounded(decimal: Int) -> CGFloat {
-        let decimal = decimal.cgFloat
+        let decimal = pow(10, decimal.cgFloat)
         return (decimal * self).rounded(.toNearestOrEven) / decimal
     }
     

@@ -28,14 +28,6 @@ public extension CGPoint {
         let radians = atan2(deltaY, deltaX)
         return radians
     }
-
-    func translationToScale(translationFor2xScale translationFor2x: CGFloat = 200) -> CGFloat {
-        var multiplierX = abs(x) / translationFor2x
-        var multiplierY = abs(y) / translationFor2x
-        multiplierX = 1 + (x < 0 ? -multiplierX : multiplierX)
-        multiplierY = 1 + (y > 0 ? -multiplierY : multiplierY)
-        return ((multiplierX - 1) + (multiplierY - 1)) + 1
-    }
     
     func angle(inCircleWithCenter center: CGPoint, toPointOnCircle: CGPoint) -> CGFloat {
         let p1 = self
@@ -131,6 +123,12 @@ public extension CGPoint {
         return distanceTo(.zero)
     }
     
+    /**
+     Rounds the `CGFloat` to the specified number of decimal places.
+     
+     - Parameter decimal: The number of decimal places to round to.
+     - Returns: A new `CGFloat` rounded.
+     */
     func rounded(decimal: Int) -> CGPoint {
         return CGPoint(x: x.rounded(decimal: decimal),
                        y: y.rounded(decimal: decimal))

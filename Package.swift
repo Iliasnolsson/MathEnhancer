@@ -23,6 +23,6 @@ let package = Package(
             dependencies: []),
         .testTarget(
             name: "MathEnhancerTests",
-            dependencies: ["MathEnhancer"]),
+            dependencies: ["MathEnhancer"])
     ]
 )
