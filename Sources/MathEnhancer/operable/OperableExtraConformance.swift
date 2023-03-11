@@ -1,15 +1,15 @@
 //
-//  Extensions for Math.swift
-//  Final Animation
+//  File.swift
+//  
 //
-//  Created by Ilias Nikolaidis Olsson on 2021-06-18.
+//  Created by Ilias Nikolaidis Olsson on 2023-03-11.
 //
 
 import CoreGraphics
 
-
-infix operator +|
 infix operator +-
+infix operator *-
+infix operator /-
 
 public extension CGSize {
     
@@ -47,33 +47,20 @@ public extension CGSize {
         return CGSize(width: width * size.width, height: height * size.height)
     }
     
-    /// Operator convenience to add sizes with +
-    static func +(left: CGSize, right: CGSize) -> CGSize {
-        return left.add(right)
-    }
-    
-    /// Operator convenience to subtract sizes with -
-    static func -(left: CGSize, right: CGSize) -> CGSize {
-        return left.subtract(right)
-    }
-    
     /// Operator convenience to multiply sizes with *
-    static func *(left: CGSize, right: CGFloat) -> CGSize {
+    static func *-(left: CGSize, right: CGFloat) -> CGSize {
         return CGSize(width: left.width * right, height: left.height * right)
     }
     
     /// Operator convenience to divide points with /
-    static func / (lhs: CGSize, rhs: CGFloat) -> CGSize {
+    static func /-(lhs: CGSize, rhs: CGFloat) -> CGSize {
         return CGSize(width: lhs.width / CGFloat(rhs), height: lhs.height / CGFloat(rhs))
     }
     
-    static func +|(left: CGSize, right: CGFloat) -> CGSize {
-        return CGSize(width: left.width, height: left.height + right)
-    }
-    
     static func +-(left: CGSize, right: CGFloat) -> CGSize {
-        return CGSize(width: left.width + right, height: left.height)
+        return CGSize(width: left.width + right, height: left.height + right)
     }
+
     
 }
 
@@ -96,31 +83,17 @@ public extension CGPoint {
     }
     
     /// Operator convenience to divide points with /
-    static func / (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+    static func /-(lhs: CGPoint, rhs: CGFloat) -> CGPoint {
         return CGPoint(x: lhs.x / CGFloat(rhs), y: lhs.y / CGFloat(rhs))
     }
     
     /// Operator convenience to multiply points with *
-    static func * (lhs: CGPoint, rhs: CGFloat) -> CGPoint {
+    static func *-(lhs: CGPoint, rhs: CGFloat) -> CGPoint {
         return CGPoint(x: lhs.x * CGFloat(rhs), y: lhs.y * CGFloat(rhs))
     }
     
-    /// Operator convenience to add points with +
-    static func +(left: CGPoint, right: CGPoint) -> CGPoint {
-        return left.add(right)
-    }
-    
-    /// Operator convenience to subtract points with -
-    static func -(left: CGPoint, right: CGPoint) -> CGPoint {
-        return left.subtract(right)
-    }
-    
-    static func +|(left: CGPoint, right: CGFloat) -> CGPoint {
-        return CGPoint(x: left.x, y: left.y + right)
-    }
-    
     static func +-(left: CGPoint, right: CGFloat) -> CGPoint {
-        return CGPoint(x: left.x + right, y: left.y)
+        return CGPoint(x: left.x + right, y: left.y + right)
     }
     
 }
