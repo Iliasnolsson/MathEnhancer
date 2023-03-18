@@ -4,22 +4,22 @@ import XCTest
 final class MathEnhancerTests: XCTestCase {
     
     func testNumberOfDecimals() {
-           let value1: DecimalValue = 10.0
-           XCTAssertEqual(value1.numberOfDecimals(), 0)
-           
-           let value2: DecimalValue = 10.5
-           XCTAssertEqual(value2.numberOfDecimals(), 1)
-           
-           let value3: DecimalValue = 10.1234
-           XCTAssertEqual(value3.numberOfDecimals(), 4)
-           
-           let value4: DecimalValue = -10.005
-           XCTAssertEqual(value4.numberOfDecimals(), 3)
-           
-           let value5: DecimalValue = 0
-           XCTAssertEqual(value5.numberOfDecimals(), 0)
-       }
-
+        let value1: DecimalValue = 10.0
+        XCTAssertEqual(value1.numberOfDecimals(), 0)
+        
+        let value2: DecimalValue = 10.5
+        XCTAssertEqual(value2.numberOfDecimals(), 1)
+        
+        let value3: DecimalValue = 10.1234
+        XCTAssertEqual(value3.numberOfDecimals(), 4)
+        
+        let value4: DecimalValue = -10.005
+        XCTAssertEqual(value4.numberOfDecimals(), 3)
+        
+        let value5: DecimalValue = 0
+        XCTAssertEqual(value5.numberOfDecimals(), 0)
+    }
+    
     func testAddition() {
         let a = 5
         let b = 7
@@ -90,23 +90,23 @@ final class MathEnhancerTests: XCTestCase {
         let b: CGFloat = 2
         let result1 = a *- b
         XCTAssertEqual(result1, CGSize(width: 20, height: 40))
-
+        
         let c = CGSize(width: 20, height: 40)
         let result2 = c /- b
         XCTAssertEqual(result2, CGSize(width: 10, height: 20))
-
+        
         let d = CGSize(width: 10, height: 20)
         let result3 = d +- b
         XCTAssertEqual(result3, CGSize(width: 12, height: 22))
-
+        
         let e = CGSize(width: 10, height: 20)
         let result4 = e +- b
         XCTAssertEqual(result4, CGSize(width: 12, height: 22))
-
+        
         let f = CGPoint(x: 10, y: 20)
         let result5 = f *- b
         XCTAssertEqual(result5, CGPoint(x: 20, y: 40))
-
+        
         let g = CGPoint(x: 10, y: 20)
         let result6 = g /- b
         XCTAssertEqual(result6, CGPoint(x: 5, y: 10))
@@ -176,7 +176,7 @@ final class MathEnhancerTests: XCTestCase {
         XCTAssertEqual(yDivided.x, 10, accuracy: 0.0001)
         XCTAssertEqual(yDivided.y, 2, accuracy: 0.0001)
     }
-
+    
     func testMultiply() {
         let point = CGPoint(x: 10, y: 10)
         let xMultiplied = point.multiply(xBy: 5)
@@ -186,14 +186,14 @@ final class MathEnhancerTests: XCTestCase {
         XCTAssertEqual(yMultiplied.x, 10, accuracy: 0.0001)
         XCTAssertEqual(yMultiplied.y, 50, accuracy: 0.0001)
     }
-
+    
     func testDistanceTo() {
         let point1 = CGPoint(x: 0, y: 0)
         let point2 = CGPoint(x: 3, y: 4)
         let distance = point1.distanceTo(point2)
         XCTAssertEqual(distance, 5, accuracy: 0.0001)
     }
-
+    
     func testDistanceXYTo() {
         let point1 = CGPoint(x: 0, y: 0)
         let point2 = CGPoint(x: 3, y: 4)
@@ -201,7 +201,7 @@ final class MathEnhancerTests: XCTestCase {
         XCTAssertEqual(distanceXY.x, 3, accuracy: 0.0001)
         XCTAssertEqual(distanceXY.y, 4, accuracy: 0.0001)
     }
-
+    
     func testTranslation() {
         let point1 = CGPoint(x: 10, y: 10)
         let point2 = CGPoint(x: 5, y: 5)
@@ -209,20 +209,20 @@ final class MathEnhancerTests: XCTestCase {
         XCTAssertEqual(translation.x, -5, accuracy: 0.0001)
         XCTAssertEqual(translation.y, -5, accuracy: 0.0001)
     }
-
+    
     func testVectorLength() {
         let point = CGPoint(x: 3, y: 4)
         let vectorLength = point.vectorLength
         XCTAssertEqual(vectorLength, 5, accuracy: 0.0001)
     }
-
+    
     func testRounded() {
         let point = CGPoint(x: 1.23456789, y: 9.87654321)
         let roundedPoint = point.rounded(decimal: 3)
         XCTAssertEqual(roundedPoint.x, 1.235, accuracy: 0.0001)
         XCTAssertEqual(roundedPoint.y, 9.877, accuracy: 0.0001)
     }
-
+    
     func testSubtract() {
         let point = CGPoint(x: 10, y: 10)
         let xSubtracted = point.subtract(x: 5)
@@ -232,7 +232,7 @@ final class MathEnhancerTests: XCTestCase {
         XCTAssertEqual(ySubtracted.x, 10, accuracy: 0.0001)
         XCTAssertEqual(ySubtracted.y, 5, accuracy: 0.0001)
     }
-
+    
     func testColinear() {
         let point1 = CGPoint(x: 0, y: 0)
         let point2 = CGPoint(x: 1, y: 1)
@@ -241,6 +241,89 @@ final class MathEnhancerTests: XCTestCase {
         let point4 = CGPoint(x: 1, y: 0)
         let point5 = CGPoint(x: 0, y: 1)
         XCTAssertFalse(point1.colinear(point4, point5))
+    }
+    
+}
+
+final class EasyInitalizerAndRectTests: XCTestCase {
+    
+    func testCGPointInitWithCGSize() {
+        let size = CGSize(width: 10, height: 20)
+        let point = CGPoint(size)
+        XCTAssertEqual(point.x, size.width)
+        XCTAssertEqual(point.y, size.height)
+    }
+    
+    func testCGPointInitWithXY() {
+        let xy: CGFloat = 10
+        let point = CGPoint(xy: xy)
+        XCTAssertEqual(point.x, xy)
+        XCTAssertEqual(point.y, xy)
+    }
+    
+    func testCGRectInitWithCenterAndSize() {
+        let center = CGPoint(x: 10, y: 20)
+        let size = CGSize(width: 30, height: 40)
+        let rect = CGRect(center: center, size: size)
+        XCTAssertEqual(rect.origin.x, center.x - (size.width * 0.5))
+        XCTAssertEqual(rect.origin.y, center.y - (size.height * 0.5))
+        XCTAssertEqual(rect.size.width, size.width)
+        XCTAssertEqual(rect.size.height, size.height)
+    }
+    
+    func testCGSizeInitWithCGPoint() {
+        let point = CGPoint(x: 10, y: 20)
+        let size = CGSize(point)
+        XCTAssertEqual(size.width, point.x)
+        XCTAssertEqual(size.height, point.y)
+    }
+    
+    func testCGSizeInitWithWH() {
+        let wh: CGFloat = 10
+        let size = CGSize(wh: wh)
+        XCTAssertEqual(size.width, wh)
+        XCTAssertEqual(size.height, wh)
+    }
+    
+    
+    func testArea() {
+        let rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+        XCTAssertEqual(rect.area, 200)
+    }
+    
+    func testCenter() {
+        var rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+        rect.center = CGPoint(x: 5, y: 10)
+        XCTAssertEqual(rect.origin.x, 0)
+        XCTAssertEqual(rect.origin.y, 0)
+    }
+    
+    func testTopLeft() {
+        var rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+        rect.topLeft = CGPoint(x: 5, y: 10)
+        XCTAssertEqual(rect.origin.x, 5)
+        XCTAssertEqual(rect.origin.y, 10)
+    }
+    
+    func testBottomLeft() {
+        var rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+        rect.bottomLeft = CGPoint(x: 5, y: 10)
+        XCTAssertEqual(rect.origin.x, 5)
+        XCTAssertEqual(rect.origin.y, -10)
+    }
+    
+    func testTopRight() {
+        var rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+        rect.topRight = CGPoint(x: 5, y: 10)
+        XCTAssertEqual(rect.origin.x, -5)
+        XCTAssertEqual(rect.origin.y, 10)
+    }
+    
+    func testBottomRight() {
+        var rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+        rect.bottomRight = CGPoint(x: 5, y: 10)
+        XCTAssertEqual(rect.origin.x, -5)
+        XCTAssertEqual(rect.origin.y, -10)
     }
     
 }
