@@ -2,6 +2,23 @@ import XCTest
 @testable import MathEnhancer
 
 final class MathEnhancerTests: XCTestCase {
+    
+    func testNumberOfDecimals() {
+           let value1: DecimalValue = 10.0
+           XCTAssertEqual(value1.numberOfDecimals(), 0)
+           
+           let value2: DecimalValue = 10.5
+           XCTAssertEqual(value2.numberOfDecimals(), 1)
+           
+           let value3: DecimalValue = 10.1234
+           XCTAssertEqual(value3.numberOfDecimals(), 4)
+           
+           let value4: DecimalValue = -10.005
+           XCTAssertEqual(value4.numberOfDecimals(), 3)
+           
+           let value5: DecimalValue = 0
+           XCTAssertEqual(value5.numberOfDecimals(), 0)
+       }
 
     func testAddition() {
         let a = 5
