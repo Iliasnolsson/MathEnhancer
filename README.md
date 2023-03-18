@@ -276,6 +276,74 @@ let point4 = point1.multiply(xBy: 2).divide(yBy: 3)
 let size = CGPoint(x: 100, y: 200).sizeValue
 ```
 
+
+### CGRect Utility
+
+1.  `area`: Returns the total area of the rectangle.
+
+```swift
+let rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+let area = rect.area // area = 200
+```
+
+2.  `center`: Returns the center point of the rectangle.
+
+```swift
+var rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+let center = rect.center // center = CGPoint(x: 5, y: 10)
+
+// You can also set the center point of the rectangle:
+rect.center = CGPoint(x: 20, y: 30)
+```
+
+3.  `topLeft`, `bottomLeft`, `topRight`, `bottomRight`: Returns the specified point of the rectangle.
+
+```swift
+let rect = CGRect(x: 0, y: 0, width: 10, height: 20)
+let topLeft = rect.topLeft // topLeft = CGPoint(x: 0, y: 0)
+let bottomLeft = rect.bottomLeft // bottomLeft = CGPoint(x: 0, y: 20)
+let topRight = rect.topRight // topRight = CGPoint(x: 10, y: 0)
+let bottomRight = rect.bottomRight // bottomRight = CGPoint(x: 10, y: 20)
+
+// You can also set the specified point of the rectangle:
+rect.topLeft = CGPoint(x: 5, y: 5)
+```
+
+### CGPoint, CGRect, CGSize Initalization 
+
+A set of methods to make initalization of CoreGraphic types easier
+
+1.  `init(center:size:)`: Initializes a new `CGRect` with a center point and size.
+
+
+```swift
+let center = CGPoint(x: 50, y: 50)
+let size = CGSize(width: 100, height: 200)
+let rect = CGRect(center: center, size: size) // rect = CGRect(x: 0, y: 0, width: 100, height: 200)
+```
+
+2.  `init(_ size: CGSize)`, `init(xy: CGFloat)`: Initializes a new `CGPoint` with the specified parameters.
+
+
+```swift
+let size = CGSize(width: 100, height: 200)
+let point = CGPoint(size) // point = CGPoint(x: 100, y: 200)
+
+let xy = CGFloat(50)
+let point2 = CGPoint(xy: xy) // point2 = CGPoint(x: 50, y: 50)
+```
+
+3.  `init(_ point: CGPoint)`, `init(wh: CGFloat)`: Initializes a new `CGSize` with the specified parameters.
+
+
+```swift
+let point = CGPoint(x: 100, y: 200)
+let size = CGSize(point) // size = CGSize(width: 100, height: 200)
+
+let wh = CGFloat(50)
+let size2 = CGSize(wh: wh) // size2 = CGSize(width: 50, height: 50)
+```
+
 ---
 
 Author
